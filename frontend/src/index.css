@@ -1,0 +1,26 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto:wght@500&family=Merriweather:wght@400;700&display=swap");
+
+* {
+  margin: 0;
+}
+
+*, body {
+  font-family: "Roboto !important"
+}
+
+.MuiTabs-root .MuiTab-textColorInherit:hover {
+  opacity: 1
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Merriweather", serif !important;
+  font-weight: 700;
+}
+
+.authHeading {
+  color: #fff;
+}
+
+.authForm input {
+  background: #fff !important;
+}
