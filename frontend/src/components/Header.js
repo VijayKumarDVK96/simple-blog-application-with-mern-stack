@@ -77,7 +77,7 @@ const Header = () => {
               {" "}
               <Button
                 component={Link}
-                to="/auth"
+                to="/auth/login"
                 variant="contained"
                 sx={{ margin: 1, borderRadius: 10 }}
                 color="warning"
@@ -86,7 +86,7 @@ const Header = () => {
               </Button>
               <Button
                 component={Link}
-                to="/auth"
+                to="/auth/signup"
                 variant="contained"
                 sx={{ margin: 1, borderRadius: 10 }}
                 color="warning"

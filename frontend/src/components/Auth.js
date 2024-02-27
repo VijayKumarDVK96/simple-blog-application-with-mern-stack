@@ -1,13 +1,15 @@
 import { Box, Button, TextField, Typography } from "@mui/material";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDispatch } from "react-redux";
 import { authActions } from "../store";
-import { useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const Auth = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  let { type } = useParams();
+
   const [inputs, setInputs] = useState({
     name: "",
     email: "",
@@ -23,6 +25,15 @@ const Auth = () => {
       [e.target.name]: e.target.value,
     }));
   };
+
+  useEffect(() => {
+    if(type === 'signup') {
+      setIsSignup(true);
+    } else {
+      setIsSignup(false);
+    }
+  }, [type]);
+  
 
   const sendRequest = async (type = "login") => {
     let data = null;
