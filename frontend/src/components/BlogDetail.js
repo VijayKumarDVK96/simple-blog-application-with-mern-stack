@@ -7,7 +7,7 @@ const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
 
 const BlogDetail = () => {
   const navigate = useNavigate();
-  const [blog, setBlog] = useState();
+  // const [blog, setBlog] = useState();
   const id = useParams().id;
   const [firstLoad, setFirstLoad] = useState(true);
   const [inputs, setInputs] = useState({});
@@ -19,18 +19,18 @@ const BlogDetail = () => {
     }));
   };
   
-  const fetchDetails = async () => {
-    const res = await axios
-      .get(`${process.env.REACT_APP_API_URL}api/blog/${id}`)
-      .catch((err) => console.log(err));
-    const data = await res.data;
-    return data;
-  };
-
   useEffect(() => {
+    const fetchDetails = async () => {
+      const res = await axios
+        .get(`${process.env.REACT_APP_API_URL}api/blog/${id}`)
+        .catch((err) => console.log(err));
+      const data = await res.data;
+      return data;
+    };
+
     if(firstLoad) {
       fetchDetails().then((data) => {
-        setBlog(data.blog);
+        // setBlog(data.blog);
         setInputs({
           title: data.blog.title,
           description: data.blog.description,
@@ -39,7 +39,7 @@ const BlogDetail = () => {
       });
       setFirstLoad(false);
     }
-  }, [id]);
+  }, [id, firstLoad]);
 
   const sendRequest = async () => {
     const res = await axios

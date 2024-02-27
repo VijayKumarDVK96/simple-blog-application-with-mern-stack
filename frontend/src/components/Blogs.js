@@ -21,7 +21,7 @@ const Blogs = () => {
       sendRequest().then((data) => setBlogs(data.blogs));
       setFirstLoad(false);
     }
-  }, []);
+  }, [firstLoad]);
   // console.log(blogs);
 
   return (

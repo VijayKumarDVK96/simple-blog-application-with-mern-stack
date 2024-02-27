@@ -1,12 +1,9 @@
-import { Button, InputLabel, TextField, Typography, Grid, Card, CardContent, CardHeader, CardMedia, Avatar } from "@mui/material";
-import { Box } from "@mui/system";
+import { Button, Grid, Card, CardContent, CardHeader, CardMedia, Avatar } from "@mui/material";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
-const labelStyles = { mb: 1, mt: 2, fontSize: "24px", fontWeight: "bold" };
+import { useParams, Link } from "react-router-dom";
 
 const ViewBlog = () => {
-  const navigate = useNavigate();
   const [blog, setBlog] = useState({
     title: "",
     description: "",
@@ -16,13 +13,7 @@ const ViewBlog = () => {
   const id = useParams().id;
 //   console.log(id);
   
-  const fetchDetails = async () => {
-    const res = await axios
-      .get(`${process.env.REACT_APP_API_URL}api/blog/${id}`)
-      .catch((err) => console.log(err));
-    const data = await res.data;
-    return data;
-  };
+  
 
   const fetchUserDetails = async (userid) => {
     const res = await axios
@@ -33,6 +24,14 @@ const ViewBlog = () => {
   };
 
   useEffect(() => {
+    const fetchDetails = async () => {
+      const res = await axios
+        .get(`${process.env.REACT_APP_API_URL}api/blog/${id}`)
+        .catch((err) => console.log(err));
+      const data = await res.data;
+      return data;
+    };
+
     fetchDetails().then((data) => {
       setBlog(data.blog);
     });

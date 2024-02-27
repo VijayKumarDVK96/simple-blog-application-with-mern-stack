@@ -10,20 +10,22 @@ const UserBlogs = () => {
   const id = localStorage.getItem("userId");
   const [firstLoad, setFirstLoad] = useState(true);
 
-  const sendRequest = async () => {
-    const res = await axios
-      .get(`${process.env.REACT_APP_API_URL}api/blog/user/${id}`)
-      .catch((err) => console.log(err));
-    const data = await res.data;
-    return data;
-  };
+  
 
   useEffect(() => {
+    const sendRequest = async () => {
+      const res = await axios
+        .get(`${process.env.REACT_APP_API_URL}api/blog/user/${id}`)
+        .catch((err) => console.log(err));
+      const data = await res.data;
+      return data;
+    };
+
     if(firstLoad) {
       sendRequest().then((data) => setUser(data.user));
       setFirstLoad(false);
     }
-  }, [id]);
+  }, [id, firstLoad]);
   
   return (
     <>

@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import {
   AppBar,
-  Typography,
   Toolbar,
   Box,
   Button,
@@ -14,7 +13,7 @@ import { authActions } from "../store";
 
 const Header = () => {
   const location = useLocation();
-  const dispath = useDispatch();
+  const dispatch = useDispatch();
   const isLoggedIn = useSelector((state) => state.isLoggedIn);
 
   const [value, setValue] = useState(1);
@@ -29,6 +28,8 @@ const Header = () => {
         break;
       case '/blogs/add':
         setValue(3);
+        break;
+      default:
         break;
     }
   }, [location]);
@@ -96,7 +97,7 @@ const Header = () => {
           )}
           {isLoggedIn && (
             <Button
-              onClick={() => dispath(authActions.logout())}
+              onClick={() => dispatch(authActions.logout())}
               component={Link}
               to="/auth"
               variant="contained"
