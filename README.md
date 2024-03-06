@@ -9,7 +9,7 @@ This is a frontend application for a simple blog, allowing users to perform CRUD
 
 **Backend:** Node, Express, MongoDB (Mongoose)
 
-**DEMO:** [https://main--taupe-biscotti-fee0da.netlify.app/](https://mernstack-blog-application.netlify.app/)
+**DEMO:** [https://mernstack-blog-application.netlify.app/](https://mernstack-blog-application.netlify.app/)
 
 ---
 
