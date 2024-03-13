@@ -1,4 +1,4 @@
-### Blog Application with MERN Stack
+### Simple Blog Application with MERN Stack
 
 #### Description
 This is a frontend application for a simple blog, allowing users to perform CRUD operations on blogs including creating users, logging in, creating, viewing, editing, and deleting blogs. For more details about the frontend and backend installation and other information, check the respective folders frontend and backend.
